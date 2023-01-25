@@ -1,7 +1,5 @@
 use std::{
-    sync::{
-        mpsc, Arc, Mutex
-    },
+    sync::{mpsc, Arc, Mutex},
     thread};
 
 struct Worker {

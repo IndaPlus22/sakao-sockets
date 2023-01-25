@@ -1,1 +1,1 @@
-C:\Users\toshi\Documents\Github\kth\sakao-sockets\server\target\debug\server.exe: C:\Users\toshi\Documents\Github\kth\sakao-sockets\server\src\main.rs C:\Users\toshi\Documents\Github\kth\sakao-sockets\server\src\threadpool.rs
+C:\Users\toshi\Documents\GitHub\KTH\sakao-sockets\server\target\debug\server.exe: C:\Users\toshi\Documents\GitHub\KTH\sakao-sockets\server\src\main.rs C:\Users\toshi\Documents\GitHub\KTH\sakao-sockets\server\src\threadpool.rs
