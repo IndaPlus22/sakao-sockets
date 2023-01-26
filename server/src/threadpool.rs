@@ -45,6 +45,7 @@ pub struct ThreadPool {
 
 impl ThreadPool {
     pub fn new(size: usize) -> ThreadPool {
+        // check that size is greater than zero
         assert!(size > 0);
 
         let (sender, receiver) = mpsc::channel();
