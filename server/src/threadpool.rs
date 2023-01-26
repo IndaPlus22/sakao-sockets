@@ -2,6 +2,9 @@ use std::{
     sync::{mpsc, Arc, Mutex},
     thread};
 
+/* Max message size in characters. */
+const MSG_SIZE: usize = 32;
+
 struct Worker {
     id: usize,
     thread: Option<thread::JoinHandle<()>>
@@ -10,6 +13,7 @@ struct Worker {
 impl Worker {
     fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Worker {
         let thread = thread::spawn(move || loop {
+            let msg_buf = vec![0; MSG_SIZE];
             let message = receiver.lock().unwrap().recv();
 
             match message {

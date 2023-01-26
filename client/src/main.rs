@@ -20,6 +20,7 @@ fn main() {
 }
 
 fn chat(username: String) {
+    let _username = username.to_owned();
     let mut client = connect(username);
     // prevent io stream operation from blocking sockets in case of slow communication
     client
@@ -29,8 +30,8 @@ fn chat(username: String) {
     // create channel for communication between threads
     let (sender, receiver) = mpsc::channel::<String>();
 
+    let _username = _username.to_owned();
     /* Start thread that listens to server. */
-    
     thread::spawn(move || loop {
         let mut msg_buffer = vec![0; MSG_SIZE];
 
@@ -45,7 +46,7 @@ fn chat(username: String) {
                     .collect::<Vec<_>>();
                 let msg = String::from_utf8(_msg).expect("Invalid UTF-8 message!");
 
-                println!("Message: {:?}", msg);
+                println!("{}: Message: {:?}", _username, msg);
             }
             // no message in stream
             Err(ref err) if err.kind() == ErrorKind::WouldBlock => (),
